@@ -32,4 +32,17 @@ $(document).ready(function () {
         }
     })();
     wrap.init(".m-wrap");
+
+    document.addEventListener('scroll', function () {
+        var scrollLength = document.getElementById('imgContainer').getBoundingClientRect().top;
+        if(scrollLength !== 0) {
+            document.getElementById('index-header').style.background='rgba(0,0,0,1)';
+        }
+        else {
+            document.getElementById('index-header').style.background='rgba(0,0,0,0)';
+        }
+
+    });
+
+
 });

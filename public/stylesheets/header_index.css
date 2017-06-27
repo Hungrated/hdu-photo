@@ -8,6 +8,7 @@ header {
     top: 0;
     z-index: 20;
     min-width: 965px;
+    transition: all 750ms;
 }
 
 .header-logo {
@@ -50,9 +51,7 @@ header {
     padding: 25px 20px;
     color: whitesmoke;
     text-shadow: black 1px 1px 2px;
-
 }
-
 
 .header-options-user a {
     color: whitesmoke;
