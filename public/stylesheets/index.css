@@ -1,0 +1,11 @@
+.main-banner {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-banner img {
+    width: 100%;
+    height: auto;
+    min-width: 965px;
+    min-height: 600px;
+}

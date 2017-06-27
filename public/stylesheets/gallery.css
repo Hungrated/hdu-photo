@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    padding-top: 60px;
+}
+
+.main-userInfo {
+    height: 100%;
+    width: 250px;
+}
+
+.main-userDetails {
+    flex: 1 0 auto;
+}
