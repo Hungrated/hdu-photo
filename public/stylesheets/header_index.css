@@ -1,0 +1,60 @@
+header {
+    padding: 0 15px;
+    height: 60px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    min-width: 965px;
+}
+
+.header-logo {
+    margin: 0 10px;
+    width: 150px;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.header-logo img {
+    width: 150px;
+    height: 38px;
+}
+
+.header-options {
+    flex: 1 0 auto;
+    margin-left: 10px;
+}
+
+.header-options-btn {
+    height: 100%;
+    padding: 24px 25px;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    color: whitesmoke;
+    transition: all 350ms;
+    text-shadow: black 1px 1px 1px;
+}
+
+.header-options-btn:hover {
+    background-color: black;
+    border-radius: 10px;
+}
+
+.header-options-user {
+    float: right;
+    height: 100%;
+    padding: 25px 20px;
+    color: whitesmoke;
+    text-shadow: black 1px 1px 2px;
+
+}
+
+
+.header-options-user a {
+    color: whitesmoke;
+}
+
