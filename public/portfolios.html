@@ -19,10 +19,13 @@
             <a href="./index.html">主题照片</a>
         </button>
         <button class="header-options-btn header-options-btn3 font15" id="header-gallery">
-            <a href="./gallery.html">我的图库</a>
+            <a href="./gallery.html" id="requireLogin">我的图库</a>
         </button>
-        <span class="header-options-user font15">
+        <span class="header-options-user font15" id="btnLogin">
             <a href="./login.html">登录</a>&nbsp;|&nbsp;<a href="./register.html">注册</a>
+        </span>
+        <span class="header-options-user font15" id="userCenter" style="display: none">
+            <span>欢迎您，</span><span id="username">Zihang_Zhang</span>&nbsp;|&nbsp;<span id="btnLogout">登出</span>
         </span>
     </div>
 </header>
@@ -35,6 +38,6 @@
 <script type="text/javascript" color="255,255,255" opacity="0.7" zIndex="1" count="35" src="./javascripts/canvas-nest.min.js"></script>
 <script type="text/javascript" src="./javascripts/jquery.min.js"></script>
 <script type="text/javascript" src="./javascripts/header.js"></script>
-<script type="text/javascript" src="./javascripts/portfolio.js"></script>
+<script type="text/javascript" src="./javascripts/portfolios.js"></script>
 </body>
 </html>

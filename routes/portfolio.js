@@ -40,7 +40,7 @@ router.post('/save_popularity', function (req,res,next) {
         Portfolio.save_popularity(id,function (err,result) {
            count = result.id;
             resolve();
-        })
+        });
     });
 
         promise.then(function(){
@@ -58,7 +58,7 @@ router.post('/save_popularity', function (req,res,next) {
         }
         else if(action == 0){
             count = count -1;
-            Sequlize.save_portfolio(count,function (err,result) {
+            Portfolio.save_portfolio(count,function (err,result) {
                 if(result)
                 {
                     res.json(SAVE_SUCCESS);

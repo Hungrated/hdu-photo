@@ -60,12 +60,12 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 //请求登录处理页
-                url: "http://localhost:3000/api/users/register", //登录处理页
+                url: "http://localhost:3000/users/reg", //登录处理页
                 dataType: "json",
                 //传送请求数据
                 data: { username: strUsername, password: strPassword },
                 success: function (data) {
-                    if(data.status === 1101 && data.message === "用户注册成功") {
+                    if(data.state === 200 && data.msg === "注册成功") {
                         alert("注册成功！");
                         window.location.href = "../login.html?username=" + data.username;
                     }

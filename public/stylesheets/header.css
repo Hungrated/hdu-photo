@@ -52,9 +52,14 @@ header {
     height: 100%;
     padding: 25px 20px;
     color: whitesmoke;
+    text-shadow: black 1px 1px 2px;
 }
 
-.header-options-user a {
+.header-options-user a, .header-options-user p {
     color: whitesmoke;
 }
 
+#btnLogout {
+    text-decoration: underline;
+    cursor: pointer;
+}

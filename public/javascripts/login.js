@@ -45,14 +45,12 @@ $(document).ready(function () {
             var strPassword = encodeURI($("#password").val());
 
             $.ajax({
-                //请求登录处理页
                 type: "post",
-                url: "http://localhost:3000/api/users/login", //登录处理页
+                url: "http://localhost:3000/users/login",
                 dataType: "json",
-                //传送请求数据
                 data: { username: strUsername, password: strPassword },
                 success: function (data) {
-                    if(data.status === 1101 && data.message === "登录成功") {
+                    if(data.state === 200 && data.msg === "登录成功") {
                         alert("登录成功！");
                         window.localStorage.username = data.username;
                         window.localStorage.user_id = data.user_id;
@@ -63,16 +61,6 @@ $(document).ready(function () {
                         $("#error").show().html("用户名或密码错误");
                     }
                 }
-
-                //     function (strValue) { //登录成功后返回的数据
-                //     //根据返回值进行状态显示
-                //     if (strValue == "True") {
-                //         $(".main-login").html("操作提示，登录成功！" + strValue);
-                //     }
-                //     else {
-                //         $("#error").show().html("用户名或密码错误！" + strValue);
-                //     }
-                // }
             });
         }else{
             return false;
