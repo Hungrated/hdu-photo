@@ -31,7 +31,10 @@ app.use(session({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/comment', require('./routes/comment'));
+app.use('/users', require('./routes/users'));
+app.use('/upload', require('./routes/upload'));
+app.use('/portfolio', require('./routes/portfolio'));
 require('./routes/index')(app);
 
 // catch 404 and forward to error handler

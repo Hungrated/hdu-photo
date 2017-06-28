@@ -22,5 +22,4 @@ module.exports = {
         secret: 'secret',
         expires: 3600 * 24 * 7
     }
-
 };
