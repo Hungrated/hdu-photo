@@ -35,8 +35,12 @@ header {
     background: transparent;
     outline: none;
     cursor: pointer;
-    color: whitesmoke;
     transition: all 350ms;
+}
+
+.header-options-btn a {
+    color: whitesmoke;
+    text-decoration: none;
     text-shadow: black 1px 1px 1px;
 }
 

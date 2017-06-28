@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HDU-Photo - 注册</title>
+    <link type="text/css" rel="stylesheet" href="./stylesheets/body.css">
+    <link type="text/css" rel="stylesheet" href="./stylesheets/header.css">
+    <link type="text/css" rel="stylesheet" href="./stylesheets/footer.css">
+    <link type="text/css" rel="stylesheet" href="./stylesheets/register.css">
+</head>
+<body>
+<header id="index-header">
+    <div class="header-logo"><img src="./images/hdu_photo_logo_web.png"></div>
+    <div class="header-options">
+        <button class="header-options-btn header-options-btn1 font15" id="header-index">
+            <a href="./index.html">首页</a>
+        </button>
+        <button class="header-options-btn header-options-btn2 font15" id="header-portfolio">
+            <a href="./index.html">主题照片</a>
+        </button>
+        <button class="header-options-btn header-options-btn3 font15" id="header-gallery">
+            <a href="./gallery.html">我的图库</a>
+        </button>
+        <span class="header-options-user font15">
+            <a href="./login.html">登录</a>&nbsp;|&nbsp;<a href="./register.html">注册</a>
+        </span>
+    </div>
+</header>
+<main>
+    <div class="main-left">
+        <img src="./images/hdu_photo_favicon_large.png">
+        <p class="font25">欢迎加入HDU-Photo！</p>
+        <p class="font18">HDU-Photo介绍 HDU-Photo介绍 HDU-Photo介绍 HDU-Photo介绍 </p>
+        <p class="font15">温馨提示：用户名与密码必须为6~15位字符组合 </p>
+        <!--<p class="font18">HDU-Photo介绍 HDU-Photo介绍 HDU-Photo介绍 HDU-Photo介绍 </p>-->
+
+    </div>
+    <div class="main-right">
+        <div class="form">
+            <p>&emsp;用户名：&emsp;<input id="username" type="text" required="required" /></p>
+            <p>&emsp;密&emsp;码：&emsp;<input id="password" type="password" required="required" /></p>
+            <p>确认密码：&emsp;<input id="pwdCheck" type="password" required="required" /></p>
+            <div id="error" class="t1">
+            </div>
+            <input class="t1" id="submit" type="submit" value="提&emsp;&emsp;交" />
+        </div>
+    </div>
+</main>
+<footer>
+    <p class="footer-copyright font15">©Team Miracle 2017. All rights reserved.</p>
+</footer>
+<script type="text/javascript" color="255,255,255" opacity="0.7" zIndex="1" count="35" src="./javascripts/canvas-nest.min.js"></script>
+<script type="text/javascript" src="./javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="./javascripts/register.js"></script>
+<script type="text/javascript" src="./javascripts/header.js"></script>
+</body>
+</html>

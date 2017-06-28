@@ -8,16 +8,15 @@
 
 body {
     min-width: 965px;
-    min-height: 600px;
+    /*min-height: 100vh;*/
     background-color: #222222;
 }
 
 main {
     width: 100%;
     height: auto;
-    min-height: 100vh;
     min-width: 965px;
-    z-index: 0;
+    z-index: 10;
 }
 
 .main-banner {
