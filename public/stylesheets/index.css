@@ -1,6 +1,7 @@
 body {
     overflow-x: hidden;
     position: relative;
+    padding-bottom: 35px;
 }
 
 .main-banner {
@@ -75,7 +76,8 @@ body {
 .showcase-unit {
     display: flex;
     height: 300px;
-    margin: 20px 30px;
+    max-width: 1440px;
+    margin: 20px auto;
     padding-top: 18px;
     border: 2px solid #555555;
     border-radius: 5px;
@@ -111,6 +113,7 @@ body {
 }
 
 .img-container2 > img {
+    margin: 0 10px;
     border-radius: 5px;
 }
 

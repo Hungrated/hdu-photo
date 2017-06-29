@@ -1,11 +1,13 @@
 main {
     display: flex;
+    margin: auto;
+    max-width: 1440px;
 }
 
 .main-userInfo {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 200px;
     padding-top: 20px;
     padding-bottom: 30px;
     border-right: 3px solid #333333;
@@ -21,7 +23,7 @@ main {
 }
 
 .main-userInfo-userAvatar img {
-    margin: 0 32% 20px 32%;
+    margin: 0 auto 20px auto;
     border-radius: 40px;
     cursor: pointer;
 }
@@ -34,7 +36,7 @@ main {
 }
 
 .main-userInfo-userImage {
-    padding-top: 30px;
+    padding-top: 15px;
     display: flex;
     flex: 1 0 auto;
     justify-content: center;
@@ -46,13 +48,47 @@ main {
 }
 
 .main-userDetails {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     z-index: 10;
+    position: relative;
+}
+
+.main-userDetails p {
+    color: whitesmoke;
+    text-shadow: #222222 1px 1px 2px;
+}
+
+.main-userDetails-head {
+    display: flex;
+    justify-content: space-between;
 }
 
 .main-userDetails-topic {
     color: white;
     padding: 20px;
+}
+
+.main-userDetails-options {
+    margin: auto 0;
+    padding-right: 33px;
+    color: whitesmoke;
+    text-shadow: #222222 1px 1px 2px;
+}
+
+.main-userDetails-options button {
+    padding: 5px;
+    background-color: #222222;
+    color: whitesmoke;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid #999999;
+    outline: none;
+    transition: all 350ms;
+}
+
+.main-userDetails-options button:hover {
+    color: black;
+    background-color: #999999;
 }
 
 .main-userDetails-portfolio {

@@ -8,10 +8,10 @@ main {
     padding-top: 60px;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-}
+/*footer {*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+/*}*/
 
 .main-left {
     flex: 1 1 auto;

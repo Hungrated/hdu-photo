@@ -8,18 +8,18 @@ var path = require('path');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../public/uploads'))
+        cb(null, path.join(__dirname, '../public/uploads/img/'))
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname)
+        cb(null, file.fieldname + '-' + Date.now())
     }
-})
+});
 
-var upload = multer({storage:storage});
+var upload = multer({ storage: storage });
 //multer({ storage: storage }).single('img');
 // var upload = multer({ dest: '../uploads/' })
 
-router.post('/upload_file',upload.single('img'), function (req, res, next) {
+router.post('/upload_file',upload.single('file'), function (req, res, next) {
 
     console.log(req.file);
 
@@ -31,7 +31,9 @@ router.post('/upload_file',upload.single('img'), function (req, res, next) {
     //         'http://localhost:3000/uploads/' + req.file.filename
     //     ]
     // });
-    res.send('http://localhost:3000/uploads/' + req.file.filename);
+    res.json({
+        url: 'http://localhost:3000/uploads/img/' + req.file.filename
+    });
 
 })
 

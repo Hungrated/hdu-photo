@@ -7,6 +7,10 @@
     <link type="text/css" rel="stylesheet" href="./stylesheets/header.css">
     <link type="text/css" rel="stylesheet" href="./stylesheets/footer.css">
     <link type="text/css" rel="stylesheet" href="./stylesheets/gallery.css">
+    <link type="text/css" rel="stylesheet" href="./stylesheets/portfolio_detailed.css">
+    <link type="text/css" rel="stylesheet" href="./stylesheets/portfolio_new.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/webuploader.css">
+
 </head>
 <body>
 <header>
@@ -37,30 +41,93 @@
             <p id="discription">discription</p>
         </div>
         <div class="main-userInfo-userImage">
-            <img src="./images/image_default.png" id="image" style="width: 200px; height: 300px">
+            <img src="./images/image_default.png" id="image" style="width: 150px; height: 225px">
         </div>
     </div>
     <div class="main-userDetails font18">
-        <p class="main-userDetails-topic">我的作品集</p>
-        <div class="showcase-unit">
-            <div class="showcase-unit-left">
-                <img src="./images/sample.png" style="width: 384px; height: 256px">
-                <p class="showcase-unit-topic font18">portfolioTopic</p>
+        <div class="main-userDetails-head">
+            <p class="main-userDetails-topic">我的作品集</p>
+            <div class="main-userDetails-options">
+                <!--<button id="btnSimple">简 易</button>-->
+                <!--<button id="btnDetailed">详 细</button>-->
+                <!--&nbsp;|&nbsp;-->
+                <button id="btnNew">新 建</button>
+                <button id="btnManage">管 理</button>
             </div>
-            <div class="showcase-unit-right">
-                <div class="img-container2">
-                    <img src="./images/sample.png" style="width: 250px; height: 167px">
-                    <img src="./images/sample.png" style="width: 250px; height: 167px">
-                    <img src="./images/sample.png" style="width: 250px; height: 167px">
+        </div>
+        <div class="main-userDetails-body" id="layoutBody">
+            <div class="showcase-unit">
+                <div class="showcase-unit-left">
+                    <p class="showcase-unit-topic font18">portfolioTopic</p>
+                    <img src="./images/sample.png" style="width: 360px; height: 240px">
                 </div>
-                <div class="showcase-unit-discription">
-                    <p>portfolioDiscription portfolioDiscription</p>
-                    <p>portfolioDiscription portfolioDiscription</p>
-                    <p>portfolioDiscription portfolioDiscription</p>
+                <div class="showcase-unit-right">
+                    <div class="img-container2">
+                        <img src="./images/sample.png" style="width: 200px; height: 133px">
+                        <img src="./images/sample.png" style="width: 200px; height: 133px">
+                        <img src="./images/sample.png" style="width: 200px; height: 133px">
+                    </div>
+                    <div class="showcase-unit-discription">
+                        <p>portfolioDiscription portfolioDiscription</p>
+                        <p>portfolioDiscription portfolioDiscription</p>
+                        <p>portfolioDiscription portfolioDiscription</p>
+                    </div>
+                    <button class="unit-delete font13" id="unitDelete0" style="display: none">删 除</button>
+                </div>
+            </div>
+
+            <!--<div class="showcase-unit-s">-->
+                <!--<div class="showcase-unit-left">-->
+                    <!--<p class="showcase-unit-topic font18">portfolioTopic</p>-->
+                    <!--<img src="./images/sample.png" style="width: 360px; height: 240px">-->
+                    <!--<button class="unit-delete font13" id="unitDelete0" style="display: none">删 除</button>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        </div>
+
+    </div>
+    <div class="main-newPortfolio" id="newPortfolio">
+        <!--<div class="container">-->
+            <!--<div class="newPortfolio-head">-->
+                <!--<p>新建照片集</p><p id="close">关闭</p>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="newPortfolio-body" id="upload">&ndash;&gt;-->
+
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--<div class="newPortfolio-body" id="uploader-demo">-->
+                <!--<div id="thelist" class="uploader-list"></div>-->
+                <!--<div>-->
+                    <!--<div id="filePicker">选择图片</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+        <!--</div>-->
+        <div id="wrapper" class="wrapper">
+            <div class="newPortfolio-head">
+                <p>新建照片集</p><p id="close">关闭</p>
+            </div>
+            <div id="container">
+                <div id="uploader">
+                    <div class="queueList">
+                        <div id="dndArea" class="placeholder">
+                            <div id="filePicker"></div>
+                            <p>或将照片拖到这里，单次最多可选300张</p>
+                        </div>
+                    </div>
+                    <div class="statusBar" style="display:none;">
+                        <div class="progress">
+                            <span class="text">0%</span>
+                            <span class="percentage"></span>
+                        </div><div class="info"></div>
+                        <div class="btns">
+                            <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 </main>
 <footer>
@@ -69,5 +136,10 @@
 <script type="text/javascript" color="255,255,255" opacity="0.7" zIndex="1" count="35" src="./javascripts/canvas-nest.min.js"></script>
 <script type="text/javascript" src="./javascripts/jquery.min.js"></script>
 <script type="text/javascript" src="./javascripts/header.js"></script>
+<script type="text/javascript" src="./javascripts/gallery.js"></script>
+<script type="text/javascript" src="./javascripts/webuploader.js"></script>
+<script type="text/javascript" src="./javascripts/upload.js"></script>
+<!--<script type="text/javascript" src="./javascripts/portfolio_edit.js"></script>-->
+
 </body>
 </html>

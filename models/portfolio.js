@@ -20,7 +20,7 @@ const schema = {
         type: Sequelize.TEXT('long')
     },
     cover_url: {
-        type: Sequelize.STRING(64)
+        type: Sequelize.STRING(256)
     },
     photo_url: {
         type: Sequelize.STRING(128)
@@ -57,7 +57,25 @@ function get_portfolio(id,callback) {
 }
 
 
+function get_photos(page,count,callback) {
+    Portfolio.findAll({
+        'where': {
+            'id': {
+                gt: (page-1)*count
+            },
+            'id': {
+                lte: page*count
+            }
+        }
+    }).then(function (result) {
+        callback(null,result);
+    });
+}
+
+
+
 exports.save_portfolio = save_portfolio;
 exports.get_portfolio = get_portfolio;
 exports.save_popularity = save_popularity;
+exports.get_photos = get_photos;
 

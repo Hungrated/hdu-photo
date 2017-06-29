@@ -34,13 +34,13 @@ router.post('/save_portfolio', function (req,res,next) {
 router.post('/save_popularity', function (req,res,next) {
 
     var action = req.body.action_type,
-        id =req.body.id,
-        count = 0;
+        id =req.body.id;
+    var    count = 0;
     let promise = new Promise(function(resolve,rejeact){
         Portfolio.save_popularity(id,function (err,result) {
            count = result.id;
             resolve();
-        });
+        })
     });
 
         promise.then(function(){
@@ -58,7 +58,7 @@ router.post('/save_popularity', function (req,res,next) {
         }
         else if(action == 0){
             count = count -1;
-            Portfolio.save_portfolio(count,function (err,result) {
+            Sequlize.save_portfolio(count,function (err,result) {
                 if(result)
                 {
                     res.json(SAVE_SUCCESS);
@@ -79,6 +79,17 @@ router.post('/get_portfolio',function (req,res,next) {
     var user_id = req.body.user_id;
 
     Portfolio.get_portfolio(user_id,function (err,result) {
+        if(err) return next(err);
+        // console.log(result[0].User_Id);
+        res.send(result)
+        //res.json(result);
+    });
+});
+
+router.post('/get_photos',function (req,res,next) {
+    var page = req.body.page;
+    var count=10;
+    Portfolio.get_photos(page,count,function (err,result) {
         if(err) return next(err);
         // console.log(result[0].User_Id);
         res.send(result)
