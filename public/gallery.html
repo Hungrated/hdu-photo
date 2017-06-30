@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>HDU-Photo - 共享生活之美</title>
+
     <link type="text/css" rel="stylesheet" href="./stylesheets/body.css">
     <link type="text/css" rel="stylesheet" href="./stylesheets/header.css">
     <link type="text/css" rel="stylesheet" href="./stylesheets/footer.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/wangEditor.min.css">
     <link type="text/css" rel="stylesheet" href="./stylesheets/gallery.css">
     <link type="text/css" rel="stylesheet" href="./stylesheets/portfolio_detailed.css">
     <link type="text/css" rel="stylesheet" href="./stylesheets/portfolio_new.css">
-    <link rel="stylesheet" type="text/css" href="./stylesheets/webuploader.css">
+
 
 </head>
 <body>
@@ -83,50 +86,69 @@
                     <!--<button class="unit-delete font13" id="unitDelete0" style="display: none">删 除</button>-->
                 <!--</div>-->
             <!--</div>-->
-
         </div>
 
     </div>
     <div class="main-newPortfolio" id="newPortfolio">
-        <!--<div class="container">-->
-            <!--<div class="newPortfolio-head">-->
-                <!--<p>新建照片集</p><p id="close">关闭</p>-->
-            <!--</div>-->
-            <!--&lt;!&ndash;<div class="newPortfolio-body" id="upload">&ndash;&gt;-->
-
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--<div class="newPortfolio-body" id="uploader-demo">-->
-                <!--<div id="thelist" class="uploader-list"></div>-->
-                <!--<div>-->
-                    <!--<div id="filePicker">选择图片</div>-->
-                <!--</div>-->
-            <!--</div>-->
-
-
-        <!--</div>-->
         <div id="wrapper" class="wrapper">
             <div class="newPortfolio-head">
                 <p>新建照片集</p><p id="close">关闭</p>
             </div>
-            <div id="container">
-                <div id="uploader">
-                    <div class="queueList">
-                        <div id="dndArea" class="placeholder">
-                            <div id="filePicker"></div>
-                            <p>或将照片拖到这里，单次最多可选300张</p>
+            <div class="newPortfolio-body">
+                <form>
+                    <div class="form-group title">
+                        <label for="title">标题 : </label>
+                        <input type="text" name="title" id="title" autofocus><br>
+                    </div>
+                    <div class="form-group tag">
+                        <div class="tag-left tag-part">
+                            <label for="tags">标签 : </label>
+                            <div class="styled-select">
+                                <select id="tags" name="tags">
+                                    <option>风光</option>
+                                    <option>人像</option>
+                                    <option>人文</option>
+                                    <option>新闻纪实</option>
+                                    <option>静物</option>
+                                    <option>创意</option>
+                                    <option>其他</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="tag-right tag-part">
+                            <label for="author">作者 : </label>
+                            <input type="text" name="author" id="author"><br>
                         </div>
                     </div>
-                    <div class="statusBar" style="display:none;">
-                        <div class="progress">
-                            <span class="text">0%</span>
-                            <span class="percentage"></span>
-                        </div><div class="info"></div>
-                        <div class="btns">
-                            <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                </form>
+                <div id="container">
+                    <div id="uploader">
+                        <div class="queueList">
+                            <div id="dndArea" class="placeholder">
+                                <div id="filePicker"></div>
+                                <p>或将照片拖到这里，单次最多可选300张</p>
+                            </div>
+                        </div>
+                        <div class="statusBar" style="display:none;">
+                            <div class="progress">
+                                <span class="text">0%</span>
+                                <span class="percentage"></span>
+                            </div><div class="info"></div>
+                            <div class="btns">
+                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <form>
+                    <div id="editor-wrapper" style="width: 100%;margin: 0 auto;">
+                        <label for="editor">介绍 : </label>
+                        <textarea name="content" id="editor" style="height: 400px;"></textarea>
+                    </div>
+                    <button id="submit" class="submit">发 布</button>
+                </form>
             </div>
+
         </div>
     </div>
 </main>
@@ -138,8 +160,9 @@
 <script type="text/javascript" src="./javascripts/header.js"></script>
 <script type="text/javascript" src="./javascripts/gallery.js"></script>
 <script type="text/javascript" src="./javascripts/webuploader.js"></script>
+<script type="text/javascript" src="./javascripts/wangEditor.min.js"></script>
 <script type="text/javascript" src="./javascripts/upload.js"></script>
-<!--<script type="text/javascript" src="./javascripts/portfolio_edit.js"></script>-->
+<script type="text/javascript" src="./javascripts/portfolio_submit.js"></script>
 
 </body>
 </html>

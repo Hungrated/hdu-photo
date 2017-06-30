@@ -27,12 +27,4 @@ $(document).ready(function () {
         $(".showcase-unit-right").show();
     });
 
-    $("#btnNew").click(function () {
-        $("#newPortfolio").show();
-    });
-
-    $("#close").click(function () {
-        $("#newPortfolio").hide();
-    });
-
 });

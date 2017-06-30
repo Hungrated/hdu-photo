@@ -1,14 +1,21 @@
 .main-newPortfolio {
     z-index: 50;
     background-color: rgba(0,0,0,0.5);
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: fixed;
 }
 
 .newPortfolio-head {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.newPortfolio-body {
+    height: 90%;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 .newPortfolio-head p {
@@ -27,22 +34,21 @@
 }
 
 #wrapper {
+    position: relative;
     background-color: #333333;
-    border-radius: 5px;
     border: 1px solid #999999;
+    border-radius: 5px;
     z-index: 99;
     margin: auto;
-    height: 650px;
-    width: 80vw;
+    height: 80%;
+    width: 80%;
     padding: 20px 30px;
-
 }
 
 #container {
     border: 1px solid #dadada;
     color: #838383;
     font-size: 12px;
-    margin-top: 10px;
     background-color: #FFF;
 }
 
@@ -392,3 +398,119 @@
     pointer-events: none;
     opacity: 0.6;
 }
+
+/*editor*/
+
+form {
+    background: #fff;
+    padding: 20px 35px;
+}
+
+.submit{
+    width: 160px;
+    height: 50px;
+    margin: 25px auto;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    background: #003687;
+    border-radius: 10px;
+    color: #e7ffff;
+    outline: none;
+    cursor: pointer;
+    border: none;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+form input[id="title"] {
+    width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1.2em;
+}
+
+.tag {
+    overflow: hidden;
+}
+
+.tag .tag-left {
+    float: left;
+    width: 45%;
+}
+
+.tag .tag-right {
+    float: right;
+    width: 45%;
+}
+
+form .tag-left select {
+    color: #757575;
+    background: transparent;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    height: 48px;
+    outline: none;
+    font-size: 1.2em;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none; /* for chrome */
+}
+
+.tag .styled-select {
+    position: relative;
+}
+
+/* css 画出的小图标*/
+.tag .styled-select::after {
+    content: "";
+    position: absolute;
+    right: 24px;
+    top: 12px;
+    width: 14px;
+    height: 14px;
+    /*border: 2px solid #07bc98;*/
+    /*border-width: 0 5px 5px 0;*/
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+
+}
+
+.tag input[id="author"] {
+    color: #757575;
+    height: 48px;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1.2em;
+}
+
+/* 媒体查询调整标签栏*/
+@media screen and (max-width:568px) {
+    .tag .tag-part {
+        float: none ;
+        width: auto;
+        margin-bottom: 15px;
+    }
+}
+
+form #editor {
+    width: 100%;
+}
+
+/* form styles close*/
