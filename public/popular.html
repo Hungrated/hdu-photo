@@ -1,0 +1,127 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link type="text/css" rel="stylesheet" href="./stylesheets/normalize.css">
+	<link type="text/css" rel="stylesheet" href="./stylesheets/popular.css">
+    <link type="text/css" rel="stylesheet" href="./stylesheets/header.css">
+    <link type="text/css" rel="stylesheet" href="./stylesheets/login.css">
+	<link type="text/css" rel="stylesheet" href="./stylesheets/discovery.css">
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<script src="./javascripts/util.js"></script>
+	<script src="./javascripts/fade.js"></script>
+	<script src="./javascripts/barrel.js"></script>
+	<script src="./javascripts/discovery.js"></script>
+</head>
+
+<body>
+
+<header id="index-header">
+    <div class="header-logo"><img src="./images/hdu_photo_logo_web.png"></div>
+    <div class="header-options">
+        <button class="header-options-btn header-options-btn1 font15" id="header-index">
+            <a href="./index.html">首页</a>
+        </button>
+        <button class="header-options-btn header-options-btn2 font15" id="header-portfolio">
+            <a href="./portfolios.html">主题照片</a>
+        </button>
+        <button class="header-options-btn header-options-btn3 font15" id="header-gallery">
+            <a href="./gallery.html" id="requireLogin">我的图库</a>
+        </button>
+        <span class="header-options-user font15">
+            <a href="./login.html">登录</a>&nbsp;|&nbsp;<a href="./register.html">注册</a>
+        </span>
+    </div>
+</header>
+	<div class="navigation_region">
+		<div class="navigation fix_width_on_modal">
+			<div class="tab_warpper">
+		        <ul class="tabs">
+					<li class="active" data-index="0"><a href="/popular.html">热门</a></li>
+					<li class data-index="1"><a href="/photographers.html">摄影师</a></li>
+					<li class data-index="2"><a href="/rank.html">排名</a></li>
+					<li class data-index="3"><a href="/new.html">新作</a></li>
+					<li class data-index="4"><a href="/market.html">市场</a></li>
+					<div class="underline"></div>
+		        </ul>
+	        </div>
+		</div>
+    </div>
+    <div class="discovery_body_region">
+        <div class="discovery_body">
+	        <div class="discovery_body__grid_region">
+				<div class="grid_container gallery">
+					<!--<div class="photo_grid" style="top:10px; left:10px">-->
+
+						<!--<a class="photo_link" href="https://drscdn.500px.org/photo/217855647/q%3D80_h%3D300/1ec5075f60e77dc106d0e28456a6dbef">-->
+							<!--<img width="257" height="297" src="https://drscdn.500px.org/photo/217855647/q%3D80_h%3D300/1ec5075f60e77dc106d0e28456a6dbef">-->
+						<!--</a>-->
+			            <!--<div class="photo_info">-->
+			                <!--<div class="">-->
+			                <!--</div>-->
+			                <!--<div class="">-->
+			                <!--</div>-->
+			            <!--</div>-->
+			        <!--</div>-->
+			        <!--<div class="photo_grid" style="top:10px; left:277px">-->
+			            <!--<a class="photo_link" href="https://drscdn.500px.org/photo/217815179/q%3D80_h%3D300/397717da3048a1345d377d60f92a08b6">-->
+							<!--<img width="527" height="297" src="https://drscdn.500px.org/photo/217815179/q%3D80_h%3D300/397717da3048a1345d377d60f92a08b6">-->
+						<!--</a>-->
+			            <!--<div class="photo_info">-->
+			                <!--<div class="">-->
+			                <!--</div>-->
+			                <!--<div class="">-->
+			                <!--</div>-->
+			            <!--</div>-->
+			        <!--</div>-->
+			        <!--<div class="photo_grid" style="top:10px; left:814px">-->
+			            <!--<a class="photo_link" href="https://drscdn.500px.org/photo/217868619/q%3D80_h%3D300/cf22f077f048b314e8ec525c1c40b7e0">-->
+							<!--<img width="445" height="297" src="https://drscdn.500px.org/photo/217868619/q%3D80_h%3D300/cf22f077f048b314e8ec525c1c40b7e0">-->
+						<!--</a>-->
+			            <!--<div class="photo_info">-->
+			                <!--<div class="">-->
+			                <!--</div>-->
+			                <!--<div class="">-->
+			                <!--</div>-->
+			            <!--</div>-->
+			        <!--</div>-->
+
+			        <!--<div class="photo_grid" style="top:317px; left:10px">-->
+			            <!--<a class="photo_link" href="https://drscdn.500px.org/photo/217902789/q%3D80_h%3D300/c7ce28841f33d1453a063f5848e6657f">-->
+							<!--<img width="228" height="261" src="https://drscdn.500px.org/photo/217902789/q%3D80_h%3D300/c7ce28841f33d1453a063f5848e6657f">-->
+						<!--</a>-->
+			            <!--<div class="photo_info">-->
+			                <!--<div class="">-->
+			                <!--</div>-->
+			                <!--<div class="">-->
+			                <!--</div>-->
+			            <!--</div>-->
+			        <!--</div>-->
+
+				</div>
+			</div>
+        </div>
+    </div>
+    <div class="scroll_to_top_container">
+    	<div class="scroll_to_top scroll_to_top--is-visible">
+    		<a class="scroll_to_top__button"></a>
+    		<span class="scroll_to_top__tooltip">返回顶部</span>
+    	</div>
+    </div>
+<script>
+
+function scrollToTop()
+{
+	$('html,body').animate( {scrollTop: 0}, 700);
+}
+
+var scrollToTopButton = document.querySelector(".scroll_to_top__button");
+scrollToTopButton.addEventListener("click", scrollToTop);
+
+var discovery = new Discovery(0);
+
+</script>
+
+</body>
+</html>

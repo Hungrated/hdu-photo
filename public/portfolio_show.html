@@ -34,7 +34,38 @@
     <div class="main-portfolioDetails">
         <div id="portfolioContainer">
             <div class="container-left">
-
+                <div id="picSlideWrap" class="clearfix">
+                    <div class="imgnav" id="imgnav">
+                        <div id="img">
+                            <img src="./images/sample.png">
+                            <img src="./images/sample.png">
+                            <img src="./images/sample.png">
+                            <img src="./images/sample.png">
+                            <img src="./images/sample.png">
+                            <img src="./images/sample.png">
+                            <img src="./images/sample.png">
+                            <div id="front" title="上一张"><a href="javaScript:void(0)" class="pngFix"></a></div>
+                            <div id="next" title="下一张"><a href="javaScript:void(0)" class="pngFix"></a></div>
+                        </div>
+                        <div id="cbtnWrapper">
+                            <div id="cbtn" style="display: none">
+                                <i class="picSildeLeft"><img src="images/show/picSlideLeft.gif"/></i>
+                                <i class="picSildeRight"><img src="images/show/picSlideRight.gif"/></i>
+                                <div id="cSlideUl">
+                                    <ul>
+                                        <li><img src="./images/sample.png"></li>
+                                        <li><img src="./images/sample.png"></li>
+                                        <li><img src="./images/sample.png"></li>
+                                        <li><img src="./images/sample.png"></li>
+                                        <li><img src="./images/sample.png"></li>
+                                        <li><img src="./images/sample.png"></li>
+                                        <li><img src="./images/sample.png"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end滚动看图-->
             </div>
             <div class="container-right">
                 <div class="container-right-head">
@@ -50,23 +81,27 @@
                         <img src="./images/comment/like_00.png" id="like" style="height: 28px; width: 28px;">
                         <p id="popularity">99</p>
                     </div>
-                    <div class="comment-block">
+                    <div class="comment-block" id="editComment" style="display: none">
                         <textarea class="comments-input" id="commentInput" rows="4" placeholder="我想说两句..."></textarea>
-                        <input type="button" class="comments-submit t2" id="commentSubmit" value="评 论">
+                        <input type="button" class="comments-submit" id="commentSubmit" value="评 论">
                     </div>
                 </div>
                 <div class="container-right-body" id="comments">
                     <div class="comment-unit">
-                        <p>name</p><p>:&nbsp;</p>commentContent
+                        <p>name</p>
+                        <p>:&nbsp;</p>commentContent
                     </div>
                     <div class="comment-unit">
-                        <p>name</p><p>:&nbsp;</p>commentContent
+                        <p>name</p>
+                        <p>:&nbsp;</p>commentContent
                     </div>
                     <div class="comment-unit">
-                        <p>name</p><p>:&nbsp;</p>commentContent
+                        <p>name</p>
+                        <p>:&nbsp;</p>commentContent
                     </div>
                     <div class="comment-unit">
-                        <p>name</p><p>:&nbsp;</p>commentContent
+                        <p>name</p>
+                        <p>:&nbsp;</p>commentContent
                     </div>
                 </div>
             </div>
@@ -77,7 +112,8 @@
 <footer>
     <p class="footer-copyright font15">©Team Miracle 2017. All rights reserved.</p>
 </footer>
-<script type="text/javascript" color="255,255,255" opacity="0.7" zIndex="1" count="35" src="./javascripts/canvas-nest.min.js"></script>
+<script type="text/javascript" color="255,255,255" opacity="0.7" zIndex="1" count="35"
+        src="./javascripts/canvas-nest.min.js"></script>
 <script type="text/javascript" src="./javascripts/jquery.min.js"></script>
 <script type="text/javascript" src="./javascripts/wangEditor.min.js"></script>
 <script type="text/javascript" src="./javascripts/header.js"></script>

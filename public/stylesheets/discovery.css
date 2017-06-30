@@ -1,0 +1,208 @@
+.fix_width_on_modal {
+    width: 100%;
+    z-index: 1000;
+}
+.button {
+    cursor: pointer
+}
+
+.tabs {
+    background-color: #fff;
+    list-style-type: none;
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    margin: 0 auto;
+    min-width: 300px;
+}
+.navigation_region {
+    height: 50px;
+    width: 100%;
+}
+.navigation_region .navigation {
+    background-color: #FFFFFF;
+}
+.navigation_region ul {
+    list-style-type: none;
+    height: 100%;
+    width: 25%;
+}
+.navigation_region ul li {
+    float: left;
+    height: 100%;
+    width: 20%;
+    text-align: center;
+}
+.navigation_region ul .underline {
+    position: relative;
+    border-top: 4px solid #E53C3C;
+    left: 0;
+    top: 46px;
+    width: 20%;
+    -webkit-transition: left 0.4s ease-in-out;
+    -moz-transition: left 0.4s ease-in-out;
+    transition: left 0.4s ease-in-out;
+}
+.navigation_region ul li:nth-child(1)[class|="active"]~.underline {
+    left: 0%;
+}
+.navigation_region ul li:nth-child(2)[class|="active"]~.underline {
+    left: 20%;
+}
+.navigation_region ul li:nth-child(3)[class|="active"]~.underline {
+    left: 40%;
+}
+.navigation_region ul li:nth-child(4)[class|="active"]~.underline {
+    left: 60%;
+}
+.navigation_region ul li:nth-child(5)[class|="active"]~.underline {
+    left: 80%;
+}
+.navigation_region ul li:nth-child(1):hover~.underline {
+    left: 0%;
+}
+.navigation_region ul li:nth-child(2):hover~.underline {
+    left: 20%;
+}
+.navigation_region ul li:nth-child(3):hover~.underline {
+    left: 40%;
+}
+.navigation_region ul li:nth-child(4):hover~.underline {
+    left: 60%;
+}
+.navigation_region ul li:nth-child(5):hover~.underline {
+    left: 80%;
+}
+.navigation_region ul li a {
+    display: block;
+    font-size: 15px;
+    color: #787B83;
+    text-decoration: none;
+    line-height: 50px;
+    padding: 0 12px 0 12px;
+}
+.navigation_region ul li a:hover {
+    color: #F04C57;
+}
+
+.discovery_body {
+    background-color: #F6F6F6;
+    border-top: solid #E6E6E6 1px;
+}
+.discovery_body .discovery_body__grid_region {
+    width: 100%;
+    padding: 20px 40px;
+}
+.grid_container {
+    width: 100%;
+    min-height: 325px;
+    overfloat: hidden;
+    font-size: 0;
+}
+.gallery {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll_to_top {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    font-size: 0;
+}
+.scroll_to_top__button {
+    display: none;
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+    background: url(../images/scroll_to_top_icon.png) center no-repeat;
+    cursor: pointer;
+    border-radius:3px;
+}
+@-webkit-keyframes fadeInDisplayBlock {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeInDisplayBlock {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeInDisplayBlock {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.scroll_to_top--is-visible {
+    display: block;
+    opacity: 1;
+    -webkit-animation: fadeInDisplayBlock .3s ease-in-out;
+    -moz-animation: fadeInDisplayBlock .3s ease-in-out;
+    animation: fadeInDisplayBlock .3s ease-in-out;
+}
+.scroll_to_top__button:hover~.scroll_to_top__tooltip {
+    opacity: 1;
+    -webkit-transform: translateX(4px);
+    -moz-transform: translateX(4px);
+    -ms-transform: translateX(4px);
+    transform: translateX(4px);
+}
+.scroll_to_top__tooltip {
+    position: absolute;
+    right: 40px;
+    top: 5px;
+    white-space: nowrap;
+    background-color: #000;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0 8px;
+    font-size: 10px;
+    color: #fff;
+    line-height: 23px;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+    opacity: 0;
+    -webkit-transform: translateX(8px);
+    -moz-transform: translateX(8px);
+    -ms-transform: translateX(8px);
+    transform: translateX(8px);
+}
+.scroll_to_top__tooltip:before {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 8px;
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid #000;
+    border-right: 3px solid transparent;
+}

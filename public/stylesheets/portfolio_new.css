@@ -1,6 +1,6 @@
 .main-newPortfolio {
     z-index: 50;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
     position: fixed;
@@ -14,7 +14,7 @@
 
 .newPortfolio-body {
     height: 90%;
-    overflow: hidden;
+    overflow-y: auto;
     border-radius: 5px;
 }
 
@@ -59,7 +59,7 @@
 .element-invisible {
     position: absolute !important;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px,1px,1px,1px);
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
 #uploader .placeholder {
@@ -98,10 +98,12 @@
     text-align: center;
     bottom: 20px;
 }
+
 #uploader .placeholder .flashTip a {
     color: #0785d1;
     text-decoration: none;
 }
+
 #uploader .placeholder .flashTip a:hover {
     text-decoration: underline;
 }
@@ -154,7 +156,7 @@
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow : ellipsis;
+    text-overflow: ellipsis;
     top: 5px;
     text-indent: 5px;
     text-align: left;
@@ -169,6 +171,7 @@
     overflow: hidden;
     z-index: 50;
 }
+
 #uploader .filelist li p.progress span {
     display: none;
     overflow: hidden;
@@ -199,6 +202,7 @@
         background-position: 17px 0;
     }
 }
+
 @-moz-keyframes progressmove {
     0% {
         background-position: 0 0;
@@ -207,6 +211,7 @@
         background-position: 17px 0;
     }
 }
+
 @keyframes progressmove {
     0% {
         background-position: 0 0;
@@ -268,8 +273,8 @@
 #uploader .filelist div.file-panel {
     position: absolute;
     height: 0;
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#80000000', endColorstr='#80000000')\0;
-    background: rgba( 0, 0, 0, 0.5 );
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#80000000', endColorstr='#80000000') \0;
+    background: rgba(0, 0, 0, 0.5);
     width: 100%;
     top: 0;
     left: 0;
@@ -292,6 +297,7 @@
 #uploader .filelist div.file-panel span.rotateLeft {
     background-position: 0 -24px;
 }
+
 #uploader .filelist div.file-panel span.rotateLeft:hover {
     background-position: 0 0;
 }
@@ -299,6 +305,7 @@
 #uploader .filelist div.file-panel span.rotateRight {
     background-position: -24px -24px;
 }
+
 #uploader .filelist div.file-panel span.rotateRight:hover {
     background-position: -24px 0;
 }
@@ -306,6 +313,7 @@
 #uploader .filelist div.file-panel span.cancel {
     background-position: -48px -24px;
 }
+
 #uploader .filelist div.file-panel span.cancel:hover {
     background-position: -48px 0;
 }
@@ -332,6 +340,7 @@
     position: relative;
     margin-right: 10px;
 }
+
 #uploader .statusBar .progress span.percentage {
     width: 0;
     height: 100%;
@@ -340,6 +349,7 @@
     background: #1483d8;
     position: absolute;
 }
+
 #uploader .statusBar .progress span.text {
     position: relative;
     z-index: 10;
@@ -378,6 +388,7 @@
     font-size: 14px;
     float: left;
 }
+
 #uploader .statusBar .btns .webuploader-pick-hover,
 #uploader .statusBar .btns .uploadBtn:hover,
 #uploader .statusBar .btns .uploadBtn.state-uploading:hover,
@@ -390,6 +401,7 @@
     color: #fff;
     border-color: transparent;
 }
+
 #uploader .statusBar .btns .uploadBtn:hover {
     background: #00a2d4;
 }
@@ -406,7 +418,7 @@ form {
     padding: 20px 35px;
 }
 
-.submit{
+.submit {
     width: 160px;
     height: 50px;
     margin: 25px auto;
@@ -501,9 +513,9 @@ form .tag-left select {
 }
 
 /* 媒体查询调整标签栏*/
-@media screen and (max-width:568px) {
+@media screen and (max-width: 568px) {
     .tag .tag-part {
-        float: none ;
+        float: none;
         width: auto;
         margin-bottom: 15px;
     }

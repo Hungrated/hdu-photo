@@ -4,11 +4,11 @@ footer {
 }
 
 .main-portfolioDetails {
-    z-index: 50;
+    z-index: 60;
     width: 100%;
     height: 100%;
     position: fixed;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #portfolioContainer {
@@ -33,8 +33,185 @@ footer {
 }
 
 .container-left {
+    position: relative;
     flex: 1 0 auto;
 }
+
+.container-left #portfolioBody {
+    background-color: #999999;
+    height: 100%;
+}
+
+/*位置属性*/
+.marTop10 {
+    margin-top: 10px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.clearfix:after {
+    clear: both;
+    content: '';
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+/*show*/
+.imgnav {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#img {
+    z-index: 10;
+    position: relative;
+    text-align: center;
+}
+
+#img img {
+    height: 527px;
+    display: none;
+    border-radius: 5px
+}
+
+#front {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    cursor: pointer;
+    width: 394px;
+    height: 578px;
+    background: url(../images/show/blank.gif);
+}
+
+#front a {
+    position: absolute;
+    left: 20px;
+    top: 225px;
+    background: url(../images/show/imgSlideLeft.png) no-repeat;
+    width: 40px;
+    height: 60px;
+    display: none;
+}
+
+#next {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    cursor: pointer;
+    width: 394px;
+    height: 578px;
+    background: url(../images/show/blank.gif);
+}
+
+#next a {
+    position: absolute;
+    right: 0;
+    top: 225px;
+    background: url(../images/show/imgSlideRight.png) no-repeat;
+    width: 40px;
+    height: 60px;
+    display: none;
+}
+
+#cbtnWrapper {
+    position: absolute;
+    bottom: -10px;
+    z-index: 40;
+    width: 100%;
+    height: 130px;
+}
+
+#cbtn {
+    position: absolute;
+    bottom: -10px;
+    z-index: 50;
+    width: 100%;
+    height: 130px;
+    background: transparent;
+    border-radius: 5px;
+}
+
+#cbtn ul {
+    position: relative;
+    width: 10000px;
+    height: 116px;
+}
+
+#cbtn ul li {
+    float: left;
+    list-style-type: none;
+    padding: 8px 3px 3px 3px;
+    width: 120px;
+    height: 100px;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 20px;
+    position: relative;
+}
+
+#cbtn ul li img {
+    box-shadow: #444444 1px 1px 3px;
+    width: 112px;
+    height: 80px;
+    display: block;
+}
+
+#cbtn li.hov {
+    background: url(../images/show/imgHoverBg.png) no-repeat;
+}
+
+.ctrl div {
+    clear: both;
+}
+
+#cSlideUl {
+    width: 690px;
+    height: 116px;
+    overflow: hidden;
+    position: relative;
+    top: 10px;
+    margin: 0 auto;
+}
+
+.picSildeLeft {
+    cursor: pointer;
+    position: absolute;
+    top: 32px;
+    left: 10px;
+    z-index: 9;
+}
+
+.picSildeRight {
+    cursor: pointer;
+    position: absolute;
+    top: 32px;
+    right: 10px;
+    z-index: 9;
+}
+
+/*end show*/
 
 .container-right {
     width: 30%;
@@ -68,13 +245,13 @@ footer {
 
 .container-right-head .portfolio-options img {
     cursor: pointer;
-    filter:alpha(Opacity=80);
+    filter: alpha(Opacity=80);
     opacity: 0.9;
     /*transition: all 350ms;*/
 }
 
 .container-right-head .portfolio-options img:hover {
-    filter:alpha(Opacity=100);
+    filter: alpha(Opacity=100);
     opacity: 1;
 }
 
@@ -112,11 +289,23 @@ footer {
     position: absolute;
     background-color: #222222;
     border: none;
-    bottom: -15px;
+    bottom: -17px;
+    transition: all 350ms;
 }
 
 .wangEditor-txt {
+    margin: 0 !important;
     background-color: #222222;
+}
+
+.tip-triangle {
+    display: none !important;
+}
+
+.wangEditor-drop-panel {
+    width: 250px !important;
+    left: 70px !important;
+    bottom: -5px !important;
 }
 
 .comment-block .comments-submit {
@@ -124,6 +313,7 @@ footer {
     bottom: 8px;
     right: 10px;
     padding: 5px 10px;
+    cursor: pointer;
     outline: none;
     border-radius: 5px;
     color: whitesmoke;
