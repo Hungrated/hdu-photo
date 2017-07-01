@@ -1,6 +1,44 @@
+
 (function( $ ){
+
+    $("#avatar").click(function () {
+        $("#avatarUpload").fadeIn();
+
+        var options =
+            {
+                thumbBox: '.thumbBox',
+                spinner: '.spinner',
+                imgSrc: './images/avatar_default.png'
+            }
+        var cropper = $('.imageBox').cropbox(options);
+        $('#upload-file').on('change', function(){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                options.imgSrc = e.target.result;
+                cropper = $('.imageBox').cropbox(options);
+            }
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        })
+        $('#btnCrop').on('click', function(){
+            $("#avatarUpload").fadeOut();
+
+            //     var img = cropper.getDataURL();
+        //     $('.cropped').html('');
+        //     $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
+        //     $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
+        //     $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
+        })
+        $('#btnZoomIn').on('click', function(){
+            cropper.zoomIn();
+        })
+        $('#btnZoomOut').on('click', function(){
+            cropper.zoomOut();
+        })
+    });
+
     $("#btnNew").click(function () {
-        $("#newPortfolio").show();
+        $("#newPortfolio").fadeIn();
 
         // 当domReady的时候开始初始化
         $(function() {
@@ -557,8 +595,31 @@
             $upload.addClass( 'state-' + state );
             updateTotalProgress();
 
+            // var tempPortfolio = JSON.parse(window.localStorage.tempPortfolio);
+            //
+            // var portfolio_photo_url = [];
+
             uploader.on( 'uploadSuccess', function( data, response ) {
-                console.log(response._raw);
+                var url = JSON.parse(response._raw).url;
+                localStorage.tempPortfolio = localStorage.tempPortfolio || {};
+                var tempPortfolio = JSON.parse(localStorage.tempPortfolio);
+                tempPortfolio.photo_url = tempPortfolio.photo_url || [];
+                tempPortfolio.photo_url.push(url);
+                localStorage.tempPortfolio = JSON.stringify(tempPortfolio);
+                console.log(tempPortfolio);
+
+
+
+                // console.log(response._raw);
+                // var url = JSON.parse(response._raw).url;
+                // portfolio_photo_url.push(url);
+                //
+                // tempPortfolio.photo_url = JSON.stringify(portfolio_photo_url);
+                //
+                // window.localStorage.tempPortfolio = JSON.stringify(tempPortfolio);
+                //
+                // console.log(tempPortfolio);
+                // console.log(JSON.stringify(tempPortfolio));
             });
 
         });

@@ -39,17 +39,38 @@
 <main>
     <div class="main-userInfo">
         <div class="main-userInfo-userAvatar">
-            <img src="./images/avartar_default.png" id="avatar" style="width: 80px; height: 80px">
+            <img src="./images/avatar_default.png" id="avatar" style="width: 80px; height: 80px">
             <p id="name">name</p>
-            <p id="discription">discription</p>
+            <p id="description">description</p>
         </div>
         <div class="main-userInfo-userImage">
             <img src="./images/image_default.png" id="image" style="width: 150px; height: 225px">
+        </div>
+        <div class="avatar-upload-container" id="avatarUpload" style="display: none">
+            <div class="imageBox">
+                <div class="thumbBox"></div>
+                <div class="spinner" style="display: none">Loading...</div>
+            </div>
+            <div class="action">
+                <!-- <input type="file" id="file" style=" width: 200px">-->
+                <div class="new-contentarea tc"> <a href="javascript:void(0)" class="upload-img">
+                    <label for="upload-file">上传图像</label>
+                </a>
+                    <input type="file" class="" name="upload-file" id="upload-file" />
+                </div>
+                <input type="button" id="btnCrop"  class="Btnsty_peyton" value="确定">
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
+            </div>
+            <!--<div class="cropped"></div>-->
         </div>
     </div>
     <div class="main-userDetails font18">
         <div class="main-userDetails-head">
             <p class="main-userDetails-topic">我的作品集</p>
+            <p class="main-userDetails-topic font18" id="empty" style="display: none; text-align: center; color: #555555">
+                暂时还没有内容哦，快去上传照片吧！
+            </p>
             <div class="main-userDetails-options">
                 <!--<button id="btnSimple">简 易</button>-->
                 <!--<button id="btnDetailed">详 细</button>-->
@@ -59,7 +80,7 @@
             </div>
         </div>
         <div class="main-userDetails-body" id="layoutBody">
-            <div class="showcase-unit">
+            <div class="showcase-unit" id="portfoliox">
                 <div class="showcase-unit-left">
                     <p class="showcase-unit-topic font18">portfolioTopic</p>
                     <img src="./images/sample.png" style="width: 360px; height: 240px">
@@ -70,7 +91,7 @@
                         <img src="./images/sample.png" style="width: 200px; height: 133px">
                         <img src="./images/sample.png" style="width: 200px; height: 133px">
                     </div>
-                    <div class="showcase-unit-discription">
+                    <div class="showcase-unit-description">
                         <p>portfolioDiscription portfolioDiscription</p>
                         <p>portfolioDiscription portfolioDiscription</p>
                         <p>portfolioDiscription portfolioDiscription</p>
@@ -78,14 +99,6 @@
                     <button class="unit-delete font13" id="unitDelete0" style="display: none">删 除</button>
                 </div>
             </div>
-
-            <!--<div class="showcase-unit-s">-->
-            <!--<div class="showcase-unit-left">-->
-            <!--<p class="showcase-unit-topic font18">portfolioTopic</p>-->
-            <!--<img src="./images/sample.png" style="width: 360px; height: 240px">-->
-            <!--<button class="unit-delete font13" id="unitDelete0" style="display: none">删 除</button>-->
-            <!--</div>-->
-            <!--</div>-->
         </div>
 
     </div>
@@ -98,12 +111,12 @@
             <div class="newPortfolio-body">
                 <form>
                     <div class="form-group title">
-                        <label for="title">标题 : </label>
+                        <label for="title">标&emsp;题 : </label>
                         <input type="text" name="title" id="title" autofocus><br>
                     </div>
                     <div class="form-group tag">
                         <div class="tag-left tag-part">
-                            <label for="tags">标签 : </label>
+                            <label for="tags">标&emsp;签 : </label>
                             <div class="styled-select">
                                 <select id="tags" name="tags">
                                     <option>风光</option>
@@ -117,7 +130,7 @@
                             </div>
                         </div>
                         <div class="tag-right tag-part">
-                            <label for="author">作者 : </label>
+                            <label for="author">作&emsp;者 : </label>
                             <input type="text" name="author" id="author"><br>
                         </div>
                     </div>
@@ -145,11 +158,11 @@
                 </div>
                 <form>
                     <div id="editor-wrapper" style="width: 100%;margin: 0 auto;">
-                        <label for="editor">介绍 : </label>
-                        <textarea name="content" id="editor" style="height: 400px;"></textarea>
+                        <label for="editor">介&emsp;绍 : </label>
+                        <textarea name="content" id="editor" style="height: 100px;"></textarea>
                     </div>
-                    <button id="submit" class="submit">发 布</button>
                 </form>
+                <button id="portfolioSubmit" class="submit font18">发&emsp;布</button>
             </div>
 
         </div>
@@ -165,8 +178,9 @@
 <script type="text/javascript" src="./javascripts/gallery.js"></script>
 <script type="text/javascript" src="./javascripts/webuploader.js"></script>
 <script type="text/javascript" src="./javascripts/wangEditor.min.js"></script>
-<script type="text/javascript" src="./javascripts/upload.js"></script>
+<script type="text/javascript" src="./javascripts/cropbox.js"></script>
 <script type="text/javascript" src="./javascripts/portfolio_submit.js"></script>
+<script type="text/javascript" src="./javascripts/upload.js"></script>
 
 </body>
 </html>

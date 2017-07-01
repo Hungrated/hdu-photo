@@ -143,11 +143,13 @@ router.get('/logout', checkLogin, function (req,res,next) {
 
 router.post('/save_information',function (req,res,next) {
 
-    var name = req.body.name,
-        sex = req.body.sex,
+    var user_id =req.body.Id,
+        name = req.body.Name,
+        head = req.body.Head,
+        sex = req.body.Sex,
         description= req.body.Description;
 
-    Sequlize.saveUser_information(name,sex,description,function (err,result) {
+    Sequlize.saveUser_information(user_id,name,head,sex,description,function (err,result) {
         if(result)
         {
             res.json(RE_SUCCESS);
@@ -166,6 +168,18 @@ router.post('/get_information',function (req,res,next) {
         if(err) return next(err);
         res.json(result);
     });
+});
+
+router.post('/get_Name',function (req,res,next) {
+    var page = req.body.page;
+    var count=2;
+        Sequlize.get_Name(count,page,function (err,result) {
+            if(err) return next(err);
+           res.send(result)
+
+        });
+
+
 });
 
 module.exports = router;

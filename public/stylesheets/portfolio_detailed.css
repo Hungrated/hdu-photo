@@ -13,6 +13,7 @@
     background-color: #333333;
     z-index: 10;
     position: relative;
+    cursor: pointer;
 }
 
 .showcase-unit-left {
@@ -42,7 +43,7 @@
     border-radius: 5px;
 }
 
-.showcase-unit-discription {
+.showcase-unit-description {
     padding: 20px 35px;
 }
 
