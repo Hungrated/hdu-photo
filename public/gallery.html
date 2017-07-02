@@ -40,8 +40,8 @@
     <div class="main-userInfo">
         <div class="main-userInfo-userAvatar">
             <img src="./images/avatar_default.png" id="avatar" style="width: 80px; height: 80px">
-            <p id="name">name</p>
-            <p id="description">description</p>
+            <p id="name"></p>
+            <p id="description"></p>
         </div>
         <div class="main-userInfo-userImage">
             <img src="./images/image_default.png" id="image" style="width: 150px; height: 225px">
@@ -64,6 +64,16 @@
             </div>
             <!--<div class="cropped"></div>-->
         </div>
+        <div class="profile-edit-container" id="profileEdit" style="display: none">
+            <div class="form">
+                <p>&emsp;姓&emsp;名：&emsp;<input id="photographerName" type="text" required="required" /></p>
+                <p>&emsp;性&emsp;别：&emsp;<input id="sex" type="text" required="required" /></p>
+                <p>个性签名：&emsp;<input id="photographerDescription" type="text"  required="required" /></p>
+                <div id="error" class="t1">
+                </div>
+                <input class="t1" id="profileSubmit" type="submit" value="提&emsp;&emsp;交" />
+            </div>
+        </div>
     </div>
     <div class="main-userDetails font18">
         <div class="main-userDetails-head">
@@ -72,9 +82,6 @@
                 暂时还没有内容哦，快去上传照片吧！
             </p>
             <div class="main-userDetails-options">
-                <!--<button id="btnSimple">简 易</button>-->
-                <!--<button id="btnDetailed">详 细</button>-->
-                <!--&nbsp;|&nbsp;-->
                 <button id="btnNew">新 建</button>
                 <button id="btnManage">管 理</button>
             </div>
@@ -100,7 +107,6 @@
                 <!--</div>-->
             <!--</div>-->
         </div>
-
     </div>
     <div class="main-newPortfolio" id="newPortfolio" style="display: none;">
         <div id="wrapper" class="wrapper">
@@ -164,7 +170,6 @@
                 </form>
                 <button id="portfolioSubmit" class="submit font18">发&emsp;布</button>
             </div>
-
         </div>
     </div>
 </main>

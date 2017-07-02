@@ -250,9 +250,9 @@ $(document).ready(function () {
     };
     $('#comment').bind('click', function (e) {
         if ($('#editComment').css('display') === 'none') {
-            $('#editComment').show();
+            $('#editComment').fadeIn();
         } else {
-            $('#editComment').hide();
+            $('#editComment').fadeOut();
         }
         e = e || event;
         stopFunc(e);

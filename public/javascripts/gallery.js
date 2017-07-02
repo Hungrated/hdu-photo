@@ -4,23 +4,14 @@
 
 $(document).ready(function () {
 
-    var tempPortfolio = {
-        // "user_id": undefined,
-        // "title": undefined,
-        // "label": undefined,
-        // "cover_url": undefined,
-        // "photo_url": undefined,
-        // "width": undefined,
-        // "height": undefined,
-        // "depic": undefined
-    };
+    var tempPortfolio = {};
 
     window.localStorage.tempPortfolio = JSON.stringify(tempPortfolio);
     console.log(window.localStorage.tempPortfolio);
 
     var manageFlag = false;
     $("#btnManage").click(function () {
-        if(!manageFlag) {
+        if (!manageFlag) {
             $(".unit-delete").show();
             $("#btnManage").html("完成管理");
             manageFlag = true;
@@ -32,26 +23,28 @@ $(document).ready(function () {
         }
     });
 
-    var showName;
-    $.ajax({
-        type: "post",
-        url: "http://localhost:3000/users/get_information",
-        dataType: "json",
-        data: { Id: localStorage.user_id },
-        success: function (data) {
+    function profileShow() {
+        var showName;
+        $.ajax({
+            type: "post",
+            url: "http://localhost:3000/users/get_information",
+            dataType: "json",
+            data: {Id: localStorage.user_id},
+            success: function (data) {
 
-            if(data.Name) {
-                showName = data.Name;
-            }
-            else {
-                showName = data.Username;
-            }
+                if (data.Name) {
+                    showName = data.Name;
+                }
+                else {
+                    showName = data.Username;
+                }
 
-            $("#name").show().html(showName);
-            // $("#sex").show().html(data.Sex);
-            $("#description").show().html(data.description);
-        }
-    });
+                $("#name").html(showName);
+                // $("#sex").html(data.Sex);
+                $("#description").html(data.Description);
+            }
+        });
+    }
 
     function selectFromPortfolios(id) {
 
@@ -63,7 +56,7 @@ $(document).ready(function () {
             data: {"user_id": id},
             success: function (data) {
 
-                if(data.length === 0) {
+                if (data.length === 0) {
                     $("#empty").show();
                 }
                 else {
@@ -74,10 +67,10 @@ $(document).ready(function () {
                             window.location.href = "../portfolio_show.html?index=" + val.id;
                         });
                         $("#unitDelete" + i).click(function () {
-                            if(window.confirm('你确定要删除这个照片集吗？')){
+                            if (window.confirm('你确定要删除这个照片集吗？')) {
                                 destroyPortfolio(val.id);
                                 return true;
-                            }else{
+                            } else {
                                 return false;
                             }
 
@@ -92,18 +85,18 @@ $(document).ready(function () {
             var html = '<div class="showcase-unit" >' +
                 '<div class="showcase-unit-left" id="portfolio' + i + '">' +
                 '<p class="showcase-unit-topic font18">' + topic + ' | ' + label +
-                '</p>'+
+                '</p>' +
                 '<img src=' + url +
-                ' style="width: 360px; height: 240px">'+
-                '</div>'+
-                '<div class="showcase-unit-right">'+
-                '<div class="showcase-unit-description">'+
+                ' style="width: 360px; height: 240px">' +
+                '</div>' +
+                '<div class="showcase-unit-right">' +
+                '<div class="showcase-unit-description">' +
                 description +
-            '</div>'+
-            '<button class="unit-delete font13" id="unitDelete' + i +
-                '" style="display: none">删 除</button>'+
-            '</div>'+
-            '</div>';
+                '</div>' +
+                '<button class="unit-delete font13" id="unitDelete' + i +
+                '" style="display: none">删 除</button>' +
+                '</div>' +
+                '</div>';
             return html;
         }
 
@@ -127,6 +120,109 @@ $(document).ready(function () {
     //     $(".detailed-list-wrapper").html("");
     // }
 
+    function profileEdit(index) {
+        $.ajax({
+            type: "post",
+            url: "http://localhost:3000/users/get_information",
+            dataType: "json",
+            //传送请求数据
+            data: {"Id": index},
+            success: function (data) {
+                // document.getElementById('photographerName').innerHTML = data.Name;
+                $('#photographerName').html(data.Name);
+                $('#photographerDescription').html(data.Description);
+                $('#profileSubmit').click(function () {
+                    $.ajax({
+                        type: "post",
+                        url: "http://localhost:3000/users/save_information",
+                        dataType: "json",
+                        //传送请求数据
+                        data: {
+                            "Id": index,
+                            "Name": $('#photographerName').val(),
+                            "Head": "null",
+                            "Sex": $('#sex').val(),
+                            "Description": $('#photographerDescription').val()
+                        },
+                        success: function (data) {
+                            $("#name").html($('#photographerName').val());
+                            $("#description").html($('#photographerDescription').val());
+                            $('#profileEdit').fadeOut();
+                        }
+                    });
+                });
+            }
+        });
+    }
+
+
+    function avatarEdit() {
+
+        $("#avatarUpload").fadeIn();
+
+        var options =
+            {
+                thumbBox: '.thumbBox',
+                spinner: '.spinner',
+                imgSrc: './images/avatar_default.png'
+            };
+        var cropper = $('.imageBox').cropbox(options);
+        $('#upload-file').on('change', function () {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                options.imgSrc = e.target.result;
+                cropper = $('.imageBox').cropbox(options);
+            };
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        });
+        $('#btnCrop').on('click', function () {
+            $("#avatarUpload").fadeOut();
+
+            //     var img = cropper.getDataURL();
+            //     $('.cropped').html('');
+            //     $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
+            //     $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
+            //     $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
+        });
+        $('#btnZoomIn').on('click', function () {
+            cropper.zoomIn();
+        });
+        $('#btnZoomOut').on('click', function () {
+            cropper.zoomOut();
+        });
+
+    }
+
+    document.onclick = function (e) {
+        $('#profileEdit').hide();
+    };
+    $('#name, #description').bind('click', function (e) {
+        if ($('#profileEdit').css('display') === 'none') {
+            $('#profileEdit').fadeIn();
+            profileEdit(localStorage.user_id);
+        } else {
+            $('#profileEdit').fadeOut();
+        }
+        e = e || event;
+        stopFunc(e);
+    });
+
+    //阻止向上传递事件
+    $('#profileEdit').bind('click', function (e) {
+        e = e || event;
+        stopFunc(e);
+    });
+
+    function stopFunc(e) {
+        e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+    }
+
+    $("#avatar").click(function () {
+        avatarEdit()
+    });
+
+    profileShow();
     selectFromPortfolios(localStorage.user_id);
 
 });
