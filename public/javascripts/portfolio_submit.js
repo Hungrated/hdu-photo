@@ -6,9 +6,7 @@
 
 $(document).ready(function () {
 
-    var tempPortfolio = JSON.parse(window.localStorage.tempPortfolio);
-
-    wangEditor.config.printLog = true;
+    wangEditor.config.printLog = false;
 // wangEditor创建
     var editor = new wangEditor('editor');
 // 关闭菜单栏fixed
@@ -67,8 +65,6 @@ $(document).ready(function () {
         tempPortfolio.depic = $('#editor').val();
 
         console.log(tempPortfolio);
-
-        $(this).attr('disabled','disabled');
         $.ajax({
             type: "POST",
             url: "http://localhost:3000/portfolio/save_portfolio",

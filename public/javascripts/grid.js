@@ -1,174 +1,104 @@
 var Grid = function () {
-    this.element = document.querySelector(".grid_container");
+    this.element = document.querySelector(".photographers_grid_region");
     this.count = 0;
     this.page = 1;
+    this.countPerPage = 10;
 }
 
 Grid.prototype.append = function (photographersInfo) {
-    var photographersInfo = [
-        {
-            "id": 1,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/80626185/h%3D450/d8e50e96f1331f0e346db2c367e7c1f4",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 675,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        },
-        {
-            "id": 2,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/388736/h%3D450/73918be4abcbcf3dbf98bcba20303a65",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 676,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        },
-        {
-            "id": 3,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/3348095/h%3D450/a49d347c75bbdbec450f94085bc01ea2",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 603,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        },
-        {
-            "id": 4,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/4357365/h%3D450/ff3b85679ab6726629972e7668728ae8",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 301,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        },
-        {
-            "id": 5,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/18175153/h%3D450/1786a15760ff34ee4e48e177664c5a50",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 676,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        },
-        {
-            "id": 6,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/21086277/h%3D450/10d665f2e2330606594b235c5b50786a",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 676,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        },
-        {
-            "id": 7,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/25216251/h%3D450/11e98004e505e28024ee21938124f712",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 680,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        },
-        {
-            "id": 8,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/29180481/h%3D450/ae5918e24edbc1fa42c985f7827fb493",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 675,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        },
-        {
-            "id": 9,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/30602077/h%3D450/9a561ab8ae97b5a14c66a4e25ffbedd2",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 300,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        },
-        {
-            "id": 10,
-            "user_id": 1,
-            "title": "title",
-            "label": "label",
-            "cover_url": "https://drscdn.500px.org/photo/34778098/h%3D450/4c2040ce50b2ee561858cd30c97c73d6",
-            "photo_url": "photo_url",
-            "popularity": 1,
-            "createdAt": "2015-09-14T00:00:00.000Z",
-            "updatedAt": "2015-09-14T00:00:00.000Z",
-            "width": 675,
-            "height": 450,
-            "theme": "主题",
-            "photographer_page" : "http://",
-            "photographer": "摄影师"
-        }
-    ]
-
+    // var photographersInfo = [
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/172564343/m%3D900/f77e8cc3606579105d0e895c14195c90",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "Георгий  Чернядьев (Georgy Chernyadyev)",
+    //         "Head": "https://pacdn.500px.org/141796/c841f9972923eb5e65a1f9a238f7c6f695cabfa8/2.jpg?2"
+    //     },
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/152505339/m%3D900/54500f40642ecce3a8a555d1ea48309d",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "Joachim Bergauer",
+    //         "Head": "https://pacdn.500px.org/9604807/15efda3ecbc6c70e7a80d36cda96a8da5956e9aa/2.jpg?17"
+    //     },
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/206655741/m%3D900/043b44b1335d5a17243b7b86f9f6d14d",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "Remo Scarfò",
+    //         "Head": "https://pacdn.500px.org/4646600/48cf4201d74d67108a39323caba0750fb4bc2e65/2.jpg?73"
+    //     },
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/125643885/m%3D900/8dc95caf53ae980c461108bf65431c00",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "Daniel Herr",
+    //         "Head": "https://pacdn.500px.org/3602520/2d549e145fbb283ac2898b887670b06faee28b4c/2.jpg?22"
+    //     },
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/165617037/m%3D900/2bf6fac6717afe6d23ffa67379c3919f",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "Martin Niederberger",
+    //         "Head": "https://pacdn.500px.org/4025526/adc16997cb0d93d8897fca9d2047dacace5e4f1e/2.jpg?1"
+    //     },
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/186021041/m%3D900/0aeaffdada644b22e7dec27a9ff76bdd",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "Mevludin Sejmenovic",
+    //         "Head": "https://pacdn.500px.org/2786141/8550bd397c3696cbc9da16aa332894d9296ecca7/2.jpg?5"
+    //     },
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/80626185/h%3D450/d8e50e96f1331f0e346db2c367e7c1f4",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "摄影师",
+    //         "Head": "http://"
+    //     },
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/80626185/h%3D450/d8e50e96f1331f0e346db2c367e7c1f4",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "摄影师",
+    //         "Head": "http://"
+    //     },
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/80626185/h%3D450/d8e50e96f1331f0e346db2c367e7c1f4",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "摄影师",
+    //         "Head": "http://"
+    //     },
+    //     {
+    //         "cover_url": "https://drscdn.500px.org/photo/80626185/h%3D450/d8e50e96f1331f0e346db2c367e7c1f4",
+    //         "follows": 1000,
+    //         "photographer_page" : "http://",
+    //         "Name": "摄影师",
+    //         "Head": "http://"
+    //     }
+    // ]
     photographersInfo.forEach((function (info) {
-
+        var photographerCard = document.createElement('div');
+        photographerCard.className = "photographer_card";
+        photographerCard.innerHTML =
+        "<a class='link_wrap' href=" + info.photographer_page + "></a>" +
+        "<div class='top' style='background-image: url(" + info.cover_url + ")'>" +
+            "<div class='avatar_background'></div>" +
+            "<a class='avatar' href=" + info.photographer_page + " style='background-image: url(" + info.Head + ")'></a>" +
+        "</div>" +
+        "<div class='bottom'>" +
+        "<a class='name' href=" + info.photographer_page + ">" + info.Name + "</a>" +
+        "<span class='followers'>" + info.follows + "关注</span>" +
+        "<div class='message-button'>私信</div>" +
+        "<div class='follow-button'>" +
+            "<a class='button follow'>关注</a>" +
+            "<!--<a class='button unfollow'>取消关注</a>-->" +
+            "<!--<a class='self'>我</a>-->" +
+            "</div>" +
+        "</div>";
+        this.element.appendChild(photographerCard);
     }).bind(this));
+
+    this.count += this.countPerPage;
 }

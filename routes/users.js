@@ -170,16 +170,14 @@ router.post('/get_information',function (req,res,next) {
     });
 });
 
-router.post('/get_Name',function (req,res,next) {
-    var page = req.body.page;
-    var count=2;
-        Sequlize.get_Name(count,page,function (err,result) {
-            if(err) return next(err);
-           res.send(result)
+router.get('/get_Name',function (req,res,next) {
+    var page = req.param("page");
+    var count = 2;
+    Sequlize.get_Name(count,page,function (err,result) {
+        if(err) return next(err);
+        res.send(result)
 
-        });
-
-
+    });
 });
 
 module.exports = router;

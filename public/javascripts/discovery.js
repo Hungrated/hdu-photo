@@ -1,8 +1,15 @@
-var Discovery = function (dataType) {
+var Discovery = function (func) {
 	this.layout = null;
     //this.spinner = ;//document.querySelector('.spinner');
     this.isLoaded = true;
-    this.dataType = dataType || 0;
+    this.func = func || 0;
+    /*
+    func
+    0: popular
+    1: photographers
+    2: rank
+    3: recent
+     */
     this.page = 1;
     this.init();
     this.load();
@@ -11,12 +18,12 @@ var Discovery = function (dataType) {
 }
 
 Discovery.prototype.init = function () {
-    if(this.dataType == 0) {
+    if(this.func == 0 || this.func == 2 || this.func == 3) {
         this.layout = new Barrel();
         this.photoboxFade = new Fade('photobox', 100);
         this.shadowFade = new Fade('shadow', 70);
     }
-    else if(this.dataType == 1) {
+    else if(this.func == 1) {
         this.layout = new Grid();
     }
 }
@@ -69,7 +76,7 @@ Discovery.prototype.loaded = function (data) {
 Discovery.prototype.load = function () {
 	//this.spinner.style.display = 'block';
 	this.isLoaded = false;
-	getData(this.dataType, this.page++).then(this.loaded.bind(this));
+	getData(this.func, this.page++).then(this.loaded.bind(this));
 }
 
 function request(url) {
@@ -83,16 +90,22 @@ function request(url) {
     })
 }
 
-function getData(dataType, page) {
+function getData(func, page) {
     page = page || 1;
-    if(dataType == 0) {
-        return request("http://127.0.0.1:3000/portfolio/get_photos?page=" + page);
+    if(func == 0) {
+        return request("http://localhost:3000/portfolio/get_recentRank?page=" + page);
     }
-    else if(dataType == 1) {
-        return request("http://127.0.0.1:3000/portfolio/get_photos?page=" + page);
-        // return request("http://127.0.0.1:3000/portfolio/get_photographers_info?page=" + page);
+    else if(func == 1) {
+        return request("http://localhost:3000/users/get_Name?page=" + page);
+    }
+    else if(func == 2) {
+        return request("http://localhost:3000/portfolio/get_rank?page=" + page);
+    }
+    else if(func == 3) {
+        return request("http://localhost:3000/portfolio/get_recent?page=" + page);
     }
     else { // err
         // handle err
+        console.log("unexpect request");
     }
 }

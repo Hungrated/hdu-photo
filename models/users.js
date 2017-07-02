@@ -69,8 +69,8 @@ Portfolio.belongsTo(user);
 user.sync().then();
 Portfolio.sync().then();
 
-function save_portfolio(user_id, title, label, cover_url, photo_url, width, height, depic) {
-    return Portfolio.create({
+function save_portfolio(user_id, title, label, cover_url, photo_url, width, height, popularity, depic, callback) {
+    Portfolio.create({
         user_id: user_id,
         title: title,
         label: label,
@@ -78,20 +78,36 @@ function save_portfolio(user_id, title, label, cover_url, photo_url, width, heig
         photo_url: photo_url,
         width: width,
         height: height,
+        popularity: popularity,
         depic: depic
-    }, {
-        fields: [
-            'user_id',
-            'title',
-            'label',
-            'cover_url',
-            'photo_url',
-            'width',
-            'height',
-            'depic'
-        ]
-    });
+    }, {fields: ['user_id', 'title', 'label', 'cover_url', 'photo_url', 'width', 'height', 'popularity', 'depic']}).then(function (result) {
+        callback(null, result);
+    })
 }
+
+// function save_portfolio(user_id, title, label, cover_url, photo_url, width, height, depic) {
+//     return Portfolio.create({
+//         user_id: user_id,
+//         title: title,
+//         label: label,
+//         cover_url: cover_url,
+//         photo_url: photo_url,
+//         width: width,
+//         height: height,
+//         depic: depic
+//     }, {
+//         fields: [
+//             'user_id',
+//             'title',
+//             'label',
+//             'cover_url',
+//             'photo_url',
+//             'width',
+//             'height',
+//             'depic'
+//         ]
+//     });
+// }
 
 function save_popularity(id, popularity, callback) {
     Portfolio.update({popularity: popularity}, {fields: ['popularity'], where: ["id = ?", id]}).then(function (result) {
@@ -110,7 +126,7 @@ function get_portfolio(id, callback) {
 }
 
 function get_portfolio_by_id(id, callback) {
-    Portfolio.findAll({
+    Portfolio.findOne({
         'where': {
             'id': id
         }
@@ -119,46 +135,65 @@ function get_portfolio_by_id(id, callback) {
     });
 }
 
-function get_photos(page, count, callback) {
+function get_photos(page,count,callback) {
     Portfolio.findAll({
         'where': {
             'id': {
-                gt: (page - 1) * count
+                gt: (page-1)*count
             },
             'id': {
-                lte: page * count
+                lte: page*count
             }
         }
     }).then(function (result) {
-        callback(null, result);
+        callback(null,result);
     });
 }
 
-function get_rank(count, page, callback) {
+function get_rank(count,page,callback) {
     Portfolio.findAll({
-        attributes: ['user.Name', 'user.Head', 'user_id', 'cover_url', 'popularity'],
+        attributes: ['id', 'user.Name','user.Head', 'title', 'cover_url', 'width', 'height', 'popularity', 'createdAt'],
         'order': [
             ['popularity', 'DESC']
         ],
-        include: [{model: user, attributes: ['Name', 'Head']}],
-        offset: (page - 1) * count,
+        include: [{model:user,attributes:['Name','Head']}],
+        offset:(page-1)*count,
         limit: count,
     }).then(function (result) {
-        callback(null, result);
+        callback(null,result);
     });
 }
 
-function get_recent(count, page, callback) {
+function get_recent(count,page,callback) {
     Portfolio.findAll({
-        attributes: ['user.Name', 'user.Head', 'user_id', 'cover_url', 'popularity'],
+        attributes: ['id', 'user.Name','user.Head', 'title', 'cover_url', 'width', 'height', 'popularity', 'createdAt'],
         'order': [
             ['createdAt', 'DESC']
         ],
-        include: [{model: user, attributes: ['Name', 'Head']}],
-        offset: (page - 1) * count,
+        include: [{model:user,attributes:['Name','Head']}],
+        offset:(page-1)*count,
         limit: count,
     }).then(function (result) {
-        callback(null, result);
+        callback(null,result);
+    });
+}
+
+function get_recentRank(date,count,page,callback) {
+    Portfolio.findAll({
+        attributes: ['id', 'user.Name','user.Head', 'title', 'cover_url', 'width', 'height', 'popularity', 'createdAt'],
+        'order': [
+            ['popularity', 'DESC']
+        ],
+        include: [{model:user,attributes:['Name','Head']}],
+        'where': {
+            'createdAt': {
+                gt: date-7*24 * 60 * 60 * 1000
+            }
+        },
+        offset:(page-1)*count,
+        limit: count,
+    }).then(function (result) {
+        callback(null,result);
     });
 }
 
@@ -217,14 +252,14 @@ function get_information(id, callback) {
     });
 }
 
-function get_Name(count, page, callback) {
+function get_Name(count,page,callback) {
     user.findAll({
-        attributes: ['Name', 'Head', 'Description'],
-        include: [{model: Portfolio, attributes: ['cover_url']}],
-        offset: (page - 1) * count,
+        attributes: ['Name','Head','Description'],
+        include: [{model:Portfolio,attributes:['cover_url']}],
+        offset:(page-1)*count,
         limit: count,
     }).then(function (result) {
-        callback(null, result);
+        callback(null,result);
     });
 }
 
@@ -242,5 +277,4 @@ exports.save_popularity = save_popularity;
 exports.get_photos = get_photos;
 exports.get_rank = get_rank;
 exports.get_recent = get_recent;
-
-
+exports.get_recentRank = get_recentRank;

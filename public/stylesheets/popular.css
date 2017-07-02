@@ -1,12 +1,29 @@
+.discovery_body .discovery_body__grid_region {
+    padding: 20px 40px;
+}
+
+.grid_container {
+    width: 100%;
+    min-height: 325px;
+    overflow: hidden;
+    font-size: 0;
+}
+.gallery {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
 .photo_wrapper {
 	position: absolute;
     display: inline-block;
     overflow: hidden;
 }
 .photo_wrapper .photo_link {
-    display: block;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 .photo_wrapper img {
     width: 100%;
@@ -69,7 +86,7 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background-image: url(https://pacdn.500px.org/141796/c841f9972923eb5e65a1f9a238f7c6f695cabfa8/4.jpg?2);
+    background-size: cover;
 }
 .photo_wrapper .credits .info_wrap {
     display: inline-block;
@@ -77,7 +94,7 @@
     height: 19px;
     margin-left: 10px;
     padding: 0px 4px 0px 4px;
-    bottom: 6px;
+    bottom: 5.5px;
     background-color: transparent;
     border-radius: 2px;
 }
@@ -104,7 +121,7 @@
 .photo_wrapper .right {
     position: absolute;
     bottom: 0px;
-    right: 0px;
+    right: 10px;
     height: 30px;
     width: auto;
     -webkit-transition: all 0.15s ease-out;
@@ -113,22 +130,34 @@
 }
 .photo_wrapper .right .like-button {
     display: inline-block;
-    background: url(../images/fav_icon.png) no-repeat;
-    background-size:100% 100%;
-    -moz-background-size:100% 100%;
 }
-.photo_wrapper .right .like-button:hover {
+.photo_wrapper .right .like-button:hover .fav_icon {
     background-image: url(../images/fav_icon_hover.png);
+}
+.photo_wrapper .right .like_num {
+    max-width: 100%;
+    position: relative;
+    bottom: 5.5px;
+    font-size: 14px;
+    color: #fff;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: transparent;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
 }
 .photo_wrapper .right .comment-button {
     display: inline-block;
-
 }
 .photo_wrapper .right .fav_icon {
     display: inline-block;
     height: 30px;
     width: 30px;
-
+    background: url(../images/fav_icon.png) no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
 }
 .photo_wrapper .right .comment_icon {
     display: inline-block;
@@ -144,7 +173,5 @@
 .photo_wrapper:hover .photo_info__bottom_container {
     opacity: 1;
 }
-
-
 
 

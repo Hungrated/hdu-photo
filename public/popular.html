@@ -9,6 +9,7 @@
     <link type="text/css" rel="stylesheet" href="./stylesheets/login.css">
 	<link type="text/css" rel="stylesheet" href="./stylesheets/discovery.css">
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<script src="./javascripts/header.js"></script>
 	<script src="./javascripts/util.js"></script>
 	<script src="./javascripts/fade.js"></script>
 	<script src="./javascripts/barrel.js"></script>
@@ -23,14 +24,17 @@
         <button class="header-options-btn header-options-btn1 font15" id="header-index">
             <a href="./index.html">首页</a>
         </button>
-        <button class="header-options-btn header-options-btn2 font15" id="header-portfolio">
-            <a href="./portfolios.html">主题照片</a>
-        </button>
+		<button class="header-options-btn header-options-btn2 font15" id="header-portfolio">
+			<a href="./popular.html">主题照片</a>
+		</button>
         <button class="header-options-btn header-options-btn3 font15" id="header-gallery">
             <a href="./gallery.html" id="requireLogin">我的图库</a>
         </button>
-        <span class="header-options-user font15">
+		<span class="header-options-user font15" id="btnLogin">
             <a href="./login.html">登录</a>&nbsp;|&nbsp;<a href="./register.html">注册</a>
+        </span>
+		<span class="header-options-user font15" id="userCenter" style="display: none">
+            <span>欢迎您，</span><span id="username">Zihang_Zhang</span>&nbsp;|&nbsp;<span id="btnLogout">登出</span>
         </span>
     </div>
 </header>
@@ -41,7 +45,7 @@
 					<li class="active" data-index="0"><a href="/popular.html">热门</a></li>
 					<li class data-index="1"><a href="/photographers.html">摄影师</a></li>
 					<li class data-index="2"><a href="/rank.html">排名</a></li>
-					<li class data-index="3"><a href="/new.html">新作</a></li>
+					<li class data-index="3"><a href="/recent.html">新作</a></li>
 					<li class data-index="4"><a href="/market.html">市场</a></li>
 					<div class="underline"></div>
 		        </ul>

@@ -89,21 +89,6 @@
     background-color: #F6F6F6;
     border-top: solid #E6E6E6 1px;
 }
-.discovery_body .discovery_body__grid_region {
-    width: 100%;
-    padding: 20px 40px;
-}
-.grid_container {
-    width: 100%;
-    min-height: 325px;
-    overfloat: hidden;
-    font-size: 0;
-}
-.gallery {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
 
 .scroll_to_top {
     position: fixed;
