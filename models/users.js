@@ -69,7 +69,7 @@ Portfolio.belongsTo(user);
 user.sync().then();
 Portfolio.sync().then();
 
-function save_portfolio(user_id, title, label, cover_url, photo_url, width, height, popularity, depic, callback) {
+function save_portfolio(user_id, title, label, cover_url, photo_url, width, height, popularity, depic,userId, callback) {
     Portfolio.create({
         user_id: user_id,
         title: title,
@@ -79,8 +79,9 @@ function save_portfolio(user_id, title, label, cover_url, photo_url, width, heig
         width: width,
         height: height,
         popularity: popularity,
-        depic: depic
-    }, {fields: ['user_id', 'title', 'label', 'cover_url', 'photo_url', 'width', 'height', 'popularity', 'depic']}).then(function (result) {
+        depic: depic,
+        userId: userId
+    }, {fields: ['user_id', 'title', 'label', 'cover_url', 'photo_url', 'width', 'height', 'popularity', 'depic','userId']}).then(function (result) {
         callback(null, result);
     })
 }
@@ -108,6 +109,16 @@ function save_portfolio(user_id, title, label, cover_url, photo_url, width, heig
 //         ]
 //     });
 // }
+
+function del_portfolio(id, callback) {
+    Portfolio.destroy({
+        'where': {
+            'id': id
+        }
+    }).then(function (result) {
+        callback(null, result);
+    });
+}
 
 function save_popularity(id, popularity, callback) {
     Portfolio.update({popularity: popularity}, {fields: ['popularity'], where: ["id = ?", id]}).then(function (result) {
@@ -271,6 +282,7 @@ exports.getUserCount = getUserCount;
 exports.get_information = get_information;
 exports.get_Name = get_Name;
 exports.save_portfolio = save_portfolio;
+exports.del_portfolio = del_portfolio;
 exports.get_portfolio = get_portfolio;
 exports.get_portfolio_by_id = get_portfolio_by_id;
 exports.save_popularity = save_popularity;

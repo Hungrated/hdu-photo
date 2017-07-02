@@ -21,12 +21,12 @@ $(document).ready(function () {
     var manageFlag = false;
     $("#btnManage").click(function () {
         if(!manageFlag) {
-            $(".unit-delete").fadeIn();
+            $(".unit-delete").show();
             $("#btnManage").html("完成管理");
             manageFlag = true;
         }
         else {
-            $(".unit-delete").fadeOut();
+            $(".unit-delete").hide();
             $("#btnManage").html("管 理");
             manageFlag = false;
         }
@@ -71,8 +71,16 @@ $(document).ready(function () {
                     $.each(data, function (i, val) {
                         $("#layoutBody").prepend(addArticleElement(i, val.title, val.label, val.depic, val.cover_url));
                         $("#portfolio" + i).click(function () {
-                            alert(JSON.stringify(val));
                             window.location.href = "../portfolio_show.html?index=" + val.id;
+                        });
+                        $("#unitDelete" + i).click(function () {
+                            if(window.confirm('你确定要删除这个照片集吗？')){
+                                destroyPortfolio(val.id);
+                                return true;
+                            }else{
+                                return false;
+                            }
+
                         });
                     });
                     window.localStorage.articleData = JSON.stringify(data);
@@ -81,9 +89,8 @@ $(document).ready(function () {
         });
 
         function addArticleElement(i, topic, label, description, url) {
-            var html = '<div class="showcase-unit" id="portfolio' + i +
-                '">' +
-                '<div class="showcase-unit-left">' +
+            var html = '<div class="showcase-unit" >' +
+                '<div class="showcase-unit-left" id="portfolio' + i + '">' +
                 '<p class="showcase-unit-topic font18">' + topic + ' | ' + label +
                 '</p>'+
                 '<img src=' + url +
@@ -93,10 +100,26 @@ $(document).ready(function () {
                 '<div class="showcase-unit-description">'+
                 description +
             '</div>'+
-            '<button class="unit-delete font13" id="unitDelete0" style="display: none">删 除</button>'+
+            '<button class="unit-delete font13" id="unitDelete' + i +
+                '" style="display: none">删 除</button>'+
             '</div>'+
             '</div>';
             return html;
+        }
+
+        function destroyPortfolio(index) {
+            $.ajax({
+                type: "post",
+                url: "http://localhost:3000/portfolio/del_portfolio",
+                dataType: "json",
+                //传送请求数据
+                data: {"id": index},
+                success: function () {
+                    $("#layoutBody").html("");
+                    selectFromPortfolios(localStorage.user_id);
+                    $(".unit-delete").show();
+                }
+            });
         }
     }
 

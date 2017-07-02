@@ -15,6 +15,10 @@ const UPDATE_SUCCESS = {
     state: 200,
     msg: '更新成功'
 };
+const DEL_SUCCESS = {
+    state: 200,
+    msg: '删除成功'
+};
 
 router.post('/save_portfolio', function (req, res, next) {
 
@@ -28,8 +32,9 @@ router.post('/save_portfolio', function (req, res, next) {
         height = req.body.height,
         popularity = 0,
         depic = req.body.depic;
+    var userId = user_id;
 
-    Portfolio.save_portfolio(user_id,title,label,cover_url,photo_url,width,height, popularity, depic,function (err,result) {
+    Portfolio.save_portfolio(user_id,title,label,cover_url,photo_url,width,height, popularity, depic,userId,function (err,result) {
         if(result)
         {
             res.json(SAVE_SUCCESS);
@@ -62,6 +67,23 @@ router.post('/save_portfolio', function (req, res, next) {
     //             msg: '错误'
     //         })
     //     });
+});
+
+router.post('/del_portfolio', function (req, res, next) {
+
+
+    var id = req.body.id ;
+
+    Portfolio.del_portfolio(id,function (err,result) {
+        if(result)
+        {
+            res.json(DEL_SUCCESS);
+        }
+        else
+        {
+            res.locals.error = err;
+        }
+    });
 });
 
 router.post('/save_popularity', function (req, res, next) {
