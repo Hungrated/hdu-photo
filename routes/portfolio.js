@@ -162,7 +162,7 @@ router.get('/get_photos',function (req,res,next) {
 
 router.get('/get_rank',function (req,res,next) {
     var page = req.param("page");
-    var count=2;
+    var count = 10;
     Portfolio.get_rank(count,page,function (err,result) {
         if(err) return next(err);
         // console.log(result[0].User_Id);
@@ -173,7 +173,7 @@ router.get('/get_rank',function (req,res,next) {
 
 router.get('/get_recent',function (req,res,next) {
     var page = req.param("page");
-    var count=2;
+    var count = 10;
     Portfolio.get_recent(count,page,function (err,result) {
         if(err) return next(err);
         res.send(result)
@@ -183,7 +183,7 @@ router.get('/get_recent',function (req,res,next) {
 router.get('/get_recentRank',function (req,res,next) {
     var date =new Date();
     var page = req.param("page");
-    var count=2;
+    var count = 10;
     console.log(date);
     Portfolio.get_recentRank(date,count,page,function (err,result) {
         if(err) return next(err);

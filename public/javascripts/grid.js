@@ -82,13 +82,13 @@ Grid.prototype.append = function (photographersInfo) {
         var photographerCard = document.createElement('div');
         photographerCard.className = "photographer_card";
         photographerCard.innerHTML =
-        "<a class='link_wrap' href=" + info.photographer_page + "></a>" +
-        "<div class='top' style='background-image: url(" + info.cover_url + ")'>" +
+        "<a class='link_wrap' href=" + info.index + "></a>" +
+        "<div class='top' style='background-image: url(" + ((typeof (info.Portfolios[0])=="undefined") ? "#" : info.Portfolios[0].cover_url) + ")'>" +
             "<div class='avatar_background'></div>" +
-            "<a class='avatar' href=" + info.photographer_page + " style='background-image: url(" + info.Head + ")'></a>" +
+            "<a class='avatar' href=" + info.index + " style='background-image: url(" + info.Head + ")'></a>" +
         "</div>" +
         "<div class='bottom'>" +
-        "<a class='name' href=" + info.photographer_page + ">" + info.Name + "</a>" +
+        "<a class='name' href=" + info.index + ">" + info.Name + "</a>" +
         "<span class='followers'>" + info.follows + "关注</span>" +
         "<div class='message-button'>私信</div>" +
         "<div class='follow-button'>" +

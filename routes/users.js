@@ -172,7 +172,7 @@ router.post('/get_information',function (req,res,next) {
 
 router.get('/get_Name',function (req,res,next) {
     var page = req.param("page");
-    var count = 2;
+    var count = 8;
     Sequlize.get_Name(count,page,function (err,result) {
         if(err) return next(err);
         res.send(result)

@@ -3,29 +3,29 @@ var Barrel = function () {
 	this.basicRowHeight = 300;
 	this.maxRowWidth = this.element.offsetWidth - 17; // 17px bug
     //alert(this.maxRowWidth);
-	this.spaccing = 10;
-	this.top = this.spaccing;
-	this.left = this.spaccing;
+	this.spacing = 10;
+	this.top = this.spacing;
+	this.left = this.spacing;
 	this.photoElements = new Array();
 }
 
 Barrel.prototype.resize = function () {
     if(this.photoElements.length == 0) return;
-    var ratio = (this.maxRowWidth - (this.photoElements.length + 1) * this.spaccing) /
-        (this.left - (this.photoElements.length + 1) * this.spaccing);
+    var ratio = (this.maxRowWidth - (this.photoElements.length + 1) * this.spacing) /
+        (this.left - (this.photoElements.length + 1) * this.spacing);
     var height = this.basicRowHeight * ratio;
-    var left = this.spaccing;
+    var left = this.spacing;
     var top = this.top;
     for(var i = 0; i < this.photoElements.length; i++) {
         this.photoElements[i].style.top = top;
         this.photoElements[i].style.left = left;
         this.photoElements[i].style.width = parseFloat(this.photoElements[i].style.width) * ratio;
         this.photoElements[i].style.height = height;
-        left += parseFloat(this.photoElements[i].style.width) + this.spaccing;
+        left += parseFloat(this.photoElements[i].style.width) + this.spacing;
     }
     // new line
-    this.top += height + this.spaccing;
-    this.left = this.spaccing;
+    this.top += height + this.spacing;
+    this.left = this.spacing;
 
 }
 
@@ -161,7 +161,7 @@ Barrel.prototype.append = function (photos) {
    //  ]
 
 	photos.forEach((function (photo) {
-        var rowWidth = this.left + photo.width / photo.height * this.basicRowHeight + this.spaccing;
+        var rowWidth = this.left + photo.width / photo.height * this.basicRowHeight + this.spacing;
 		if(rowWidth > this.maxRowWidth) {
 			this.resize();
 			while(this.photoElements.length != 0) {
@@ -169,7 +169,7 @@ Barrel.prototype.append = function (photos) {
             }
 		}
 		else {
-		    $(".grid_container").css("height", this.top + this.basicRowHeight + this.spaccing);
+		    $(".grid_container").css("height", this.top + this.basicRowHeight + this.spacing);
         }
 	    var photoWrapper = document.createElement('div');
 	    photoWrapper.className = "photo_wrapper loaded";
@@ -211,6 +211,7 @@ Barrel.prototype.append = function (photos) {
 		photoWrapper.style.width = photo.width / photo.height * this.basicRowHeight;
 		this.element.appendChild(photoWrapper);
         this.photoElements.push(photoWrapper);
-        this.left = this.left + photo.width / photo.height * this.basicRowHeight + this.spaccing;
+        this.left = this.left + photo.width / photo.height * this.basicRowHeight + this.spacing;
+        this.element.style.height = this.top + this.basicRowHeight + this.spacing;
 	}).bind(this));
 }
