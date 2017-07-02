@@ -35,6 +35,7 @@ footer {
 .container-left {
     position: relative;
     flex: 1 0 auto;
+    max-width: 800px;
 }
 
 .container-left #portfolioBody {
@@ -75,10 +76,17 @@ footer {
 }
 
 /*show*/
+
+#picSlideWrap {
+    width: 100%;
+    height: 100%;
+}
+
 .imgnav {
     position: relative;
     margin: 0 auto;
     width: 100%;
+    height: 100%;
 }
 
 #img {
@@ -88,9 +96,10 @@ footer {
 }
 
 #img img {
-    height: 527px;
+    width: 100%;
+    padding: auto;
     display: none;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 #front {
@@ -214,7 +223,7 @@ footer {
 /*end show*/
 
 .container-right {
-    width: 30%;
+    width: 400px;
     background-color: #222222;
     border-radius: 10px;
 }

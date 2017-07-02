@@ -68,7 +68,7 @@ $(document).ready(function () {
 
     function addImg(val) {
         $("#img").prepend('<img src=' + val + '>');
-        $("#cSlideUl ul").append('<li><img src=' + val + '></li>');
+        $("#cSlideUl ul").prepend('<li><img src=' + val + '></li>');
     }
 
     function getUserById (index) {
